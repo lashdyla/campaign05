@@ -30,7 +30,7 @@ Below is an example of output from the program, use this to help define the oper
 ```
 Welcome to Network Path Analyzer
 
-Enter A Network Description File Name: data/testfile.graph
+Enter A Network Description File Name: data/test.graph
 
 Menu
 ----
@@ -43,7 +43,24 @@ Selection: 0
 
 Current Network Configuration:
 -----------------------------
-
+174.29.143.186 -> 14.14.121.219
+174.29.143.186 -> 43.207.233.165
+174.29.143.186 -> 154.199.110.242
+174.29.143.186 -> 110.160.161.99
+110.160.161.99 -> 174.29.143.186
+110.160.161.99 -> 43.207.233.165
+110.160.161.99 -> 14.14.121.219
+110.160.161.99 -> 154.199.110.242
+43.207.233.165 -> 154.199.110.242
+43.207.233.165 -> 14.14.121.219
+43.207.233.165 -> 174.29.143.186
+43.207.233.165 -> 110.160.161.99
+154.199.110.242 -> 43.207.233.165
+154.199.110.242 -> 174.29.143.186
+14.14.121.219 -> 43.207.233.165
+14.14.121.219 -> 174.29.143.186
+14.14.121.219 -> 110.160.161.99
+14.14.121.219 -> 154.199.110.242
 
 -----------------------------
 
@@ -56,17 +73,19 @@ Menu
 
 Selection: 1
 
-Node to view: 241.12.31.14
+Node to view: 154.199.110.242
 
-241.12.31.14 Routing Table
+154.199.110.242 Routing Table
 --------------------------
-
-| Destination    | Next           |
-| :------------- | :------------- |
-| Item One       | Item Two       |
+Destination     Next
+--------------  --------------
+174.29.143.186  174.29.143.186
+110.160.161.99  43.207.233.165
+43.207.233.165  43.207.233.165
+14.14.121.219   43.207.233.165
 
 Menu
-----
+----  
 0. Print The Current Network Configuration
 1. View Routing Table for a Node
 2. Find Shortest Path from One Node to Another
@@ -87,13 +106,13 @@ Menu
 
 Selection: 2
 
-Start Node: 241.12.31.14
-End Node: 241.12.31.20
+Start Node: 154.199.110.242
+End Node: 14.14.121.219
 
 Path:
-  241.12.31.14 ->
-  ...
-  241.12.31.20
+  154.199.110.242 ->
+  43.207.233.165 ->
+  14.14.121.219
 
 Menu
 ----
@@ -123,7 +142,10 @@ Goodbye!
 
 ## Additional Information
 
-I have provided a Graph ADT in the package named: `edu.isu.cs.cs3308.structures`
+I have provided a Graph ADT and interfaces for the Vertex and Edges in the package named: `edu.isu.cs.cs3308.structures`
+
+
+The folder `data` contains sample graph data files for use in testing your program. Additionally, there is a ruby file in `src/main/ruby` called `file_gen.rb` which is capable of generating additional data files.
 
 ## Submission
 When you have completed the assignment (all tests pass) or it is reaching midnight of the due date, make sure you have completed the following:
